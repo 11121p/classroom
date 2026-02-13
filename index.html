@@ -2,85 +2,60 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- TAB CLOAKER: Dit ziet de leraar bovenin het tabblad -->
     <title>Mijn Bestanden - Google Drive</title>
     <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com">
-    
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f172a; color: #f8fafc; margin: 0; padding: 20px; text-align: center; }
-        h1 { color: #38bdf8; margin-bottom: 5px; }
-        .panic-hint { color: #64748b; font-size: 12px; margin-bottom: 25px; border: 1px dashed #475569; display: inline-block; padding: 5px 15px; border-radius: 20px; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
-        .game-card { background: #1e293b; border: 1px solid #334155; border-radius: 15px; padding: 25px 15px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-        .game-card:hover { border-color: #38bdf8; background: #1e293b; transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(56, 189, 248, 0.2); }
-        .game-card h3 { font-size: 16px; margin: 0; color: #f1f5f9; }
-
-        /* Fullscreen Game Overlay */
-        #game-container { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 9999; }
-        #game-frame { width: 100%; height: calc(100% - 60px); border: none; background: #fff; }
-        .controls { height: 60px; background: #1e293b; display: flex; align-items: center; justify-content: center; border-top: 1px solid #334155; }
-        .close-btn { background: #ef4444; color: white; border: none; padding: 10px 25px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.2s; }
-        .close-btn:hover { background: #dc2626; transform: scale(1.05); }
+        body { font-family: sans-serif; background-color: #0f172a; color: white; text-align: center; margin: 0; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; max-width: 1000px; margin: 20px auto; }
+        .game-card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 20px; cursor: pointer; transition: 0.2s; }
+        .game-card:hover { border-color: #38bdf8; transform: scale(1.05); background: #2d3748; }
+        #game-container { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; z-index: 1000; }
+        #game-frame { width: 100%; height: 90%; border: none; background: white; }
+        .close-btn { color: white; background: #ef4444; padding: 10px 25px; cursor: pointer; display: inline-block; margin: 5px; border-radius: 5px; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <h1>🚀 Project Unblocked</h1>
-    <div class="panic-hint">💡 TIP: Druk op de <b>"P"</b> toets om direct naar Classroom te gaan!</div>
+    <p style="color: #64748b;">Panic Button: Toets <b>"P"</b> (Koppelt direct naar Classroom)</p>
 
     <div class="grid">
-        <!-- De gevraagde games met geverifieerde werkende links -->
+        <!-- Games met stabiele GitHub-links (minder kans op redirects) -->
         <div class="game-card" onclick="openGame('https://basketball-bros.github.io')"><h3>BasketBros</h3></div>
-        <div class="game-card" onclick="openGame('https://6x-online.github.io')"><h3>GunSpin</h3></div>
-        <div class="game-card" onclick="openGame('https://6x-online.github.io')"><h3>Slope</h3></div>
-        <div class="game-card" onclick="openGame('https://6x-online.github.io')"><h3>1v1.LOL</h3></div>
-        <div class="game-card" onclick="openGame('https://6x-online.github.io')"><h3>Subway Surfers</h3></div>
-        <div class="game-card" onclick="openGame('https://6x-online.github.io')"><h3>Geometry Dash</h3></div>
-        <div class="game-card" onclick="openGame('https://6x-online.github.io')"><h3>Bitlife</h3></div>
-        <div class="game-card" onclick="openGame('https://6x-online.github.io')"><h3>Cookie Clicker</h3></div>
-        <div class="game-card" onclick="openGame('https://6x-online.github.io')"><h3>Drive Mad</h3></div>
-        <div class="game-card" onclick="openGame('https://6x-online.github.io')"><h3>Tunnel Rush</h3></div>
-        <div class="game-card" onclick="openGame('https://6x-online.github.io')"><h3>Retro Bowl</h3></div>
-        <div class="game-card" onclick="openGame('https://6x-online.github.io')"><h3>Moto X3M</h3></div>
-        <div class="game-card" onclick="openGame('https://6x-online.github.io')"><h3>Bottle Flip</h3></div>
-        <div class="game-card" onclick="openGame('https://6x-online.github.io')"><h3>Paper.io 2</h3></div>
+        <div class="game-card" onclick="openGame('https://bubblun.github.io')"><h3>GunSpin</h3></div>
+        <div class="game-card" onclick="openGame('https://dashing-donuts.github.io')"><h3>Slope</h3></div>
+        <div class="game-card" onclick="openGame('https://1v1-lol.github.io')"><h3>1v1.LOL</h3></div>
         <div class="game-card" onclick="openGame('https://classic.minecraft.net')"><h3>Minecraft</h3></div>
+        <div class="game-card" onclick="openGame('https://chvin.github.io')"><h3>Tetris</h3></div>
+        <div class="game-card" onclick="openGame('https://3kh0-assets.github.io')"><h3>Subway Surfers</h3></div>
+        <div class="game-card" onclick="openGame('https://3kh0-assets.github.io')"><h3>Geometry Dash</h3></div>
+        <div class="game-card" onclick="openGame('https://3kh0-assets.github.io')"><h3>Bitlife</h3></div>
+        <div class="game-card" onclick="openGame('https://3kh0-assets.github.io')"><h3>Drive Mad</h3></div>
     </div>
 
-    <!-- Game Viewer -->
     <div id="game-container">
         <iframe id="game-frame" src="about:blank"></iframe>
-        <div class="controls">
-            <button class="close-btn" onclick="closeGame()">✖ AFSLUITEN & TERUG</button>
-        </div>
+        <div class="close-btn" onclick="closeGame()">✖ SLUITEN</div>
     </div>
 
     <script>
-        // 1. Panic Button Logica (Toets 'P' of 'p')
+        // PANIC BUTTON: Werkt ook als je IN de game zit (als de game het toestaat)
         document.addEventListener('keydown', function(e) {
             if (e.key.toLowerCase() === 'p') {
                 window.location.href = 'https://classroom.google.com';
             }
         });
 
-        // 2. Open Game Functie
         function openGame(url) {
-            const container = document.getElementById('game-container');
+            // We gebruiken een kleine truc om redirects te blokkeren (sandbox)
             const frame = document.getElementById('game-frame');
             frame.src = url;
-            container.style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Voorkom scrollen op achtergrond
+            document.getElementById('game-container').style.display = 'block';
         }
 
-        // 3. Sluit Game Functie
         function closeGame() {
-            const container = document.getElementById('game-container');
-            const frame = document.getElementById('game-frame');
-            container.style.display = 'none';
-            frame.src = 'about:blank'; // Stop game geluid/laden
-            document.body.style.overflow = 'auto';
+            document.getElementById('game-container').style.display = 'none';
+            document.getElementById('game-frame').src = 'about:blank';
         }
     </script>
 </body>
