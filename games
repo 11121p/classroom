@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- De Tab Cloaker: Verandert de naam en het icoontje bovenin -->
+    <title>Mijn Bestanden - Google Drive</title>
+    <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com">
+    
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f172a; color: #f8fafc; margin: 0; padding: 20px; }
+        h1 { text-align: center; color: #38bdf8; }
+        .panic-info { text-align: center; font-size: 12px; color: #64748b; margin-bottom: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
+        .game-card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 10px; text-align: center; cursor: pointer; transition: 0.2s; }
+        .game-card:hover { transform: translateY(-5px); border-color: #38bdf8; background: #334155; }
+        .game-card h3 { font-size: 14px; margin: 5px 0; }
+        #game-container { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; }
+        #game-frame { width: 90%; height: 80%; margin: 5% auto; display: block; border: 3px solid #38bdf8; border-radius: 10px; }
+        .close-btn { position: absolute; top: 20px; right: 40px; font-size: 30px; color: white; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<h1>🚀 Mijn Unblocked Game Portaal</h1>
+<p class="panic-info">Druk op <strong>"P"</strong> op je toetsenbord om snel te verbergen!</p>
+
+<div class="grid" id="gameGrid"></div>
+
+<div id="game-container">
+    <span class="close-btn" onclick="closeGame()">&times; Sluiten</span>
+    <iframe id="game-frame" src=""></iframe>
+</div>
+
+<script>
+    // PANIC BUTTON: Als je op 'P' drukt ga je naar Google Classroom
+    document.addEventListener('keydown', function(e) {
+        if (e.key.toLowerCase() === 'p') {
+            window.location.href = 'https://classroom.google.com';
+        }
+    });
+
+    const games = [
+        { name: "GunSpin", url: "https://classroom-6x.github.io" },
+        { name: "BasketBros", url: "https://basketball-bros.github.io/" },
+        { name: "Slope", url: "https://classroom-6x.github.io" },
+        { name: "1v1.LOL", url: "https://3kh0.github.io" },
+        { name: "Retro Bowl", url: "https://game316043104.codeanyapp.com" },
+        { name: "Bitlife", url: "https://bitlifeonline.github.io/" },
+        { name: "Tetris", url: "https://chvin.github.io" },
+        { name: "Subway Surfers", url: "https://3kh0.github.io" },
+        { name: "Minecraft Classic", url: "https://classic.minecraft.net" },
+        { name: "Paper.io 2", url: "https://3kh0.github.io" },
+        { name: "Tunnel Rush", url: "https://3kh0.github.io" },
+        { name: "Drive Mad", url: "https://3kh0.github.io" },
+        { name: "Geometry Dash", url: "https://3kh0.github.io" },
+        { name: "Cookie Clicker", url: "https://3kh0.github.io" },
+        { name: "Among Us", url: "https://3kh0.github.io" },
+        { name: "Friday Night Funkin", url: "https://3kh0.github.io" },
+        { name: "Happy Wheels", url: "https://3kh0.github.io" },
+        { name: "Crossy Road", url: "https://3kh0.github.io" },
+        { name: "Snow Rider 3D", url: "https://3kh0.github.io" },
+        { name: "Basketball Stars", url: "https://3kh0.github.io" },
+        { name: "Super Mario 64", url: "https://3kh0.github.io" },
+        { name: "Pac-man", url: "https://www.google.com" },
+        { name: "Eaglercraft", url: "https://3kh0.github.io" },
+        { name: "Run 3", url: "https://3kh0.github.io" },
+        { name: "World's Hardest Game", url: "https://3kh0.github.io" },
+        { name: "Bloons TD 4", url: "https://3kh0.github.io" },
+        { name: "Fireboy & Watergirl", url: "https://3kh0.github.io" },
+        { name: "Bottle Flip", url: "https://3kh0.github.io" },
+        { name: "Cut the Rope", url: "https://3kh0.github.io" },
+        { name: "Drift Hunters", url: "https://3kh0.github.io" },
+        { name: "Eggy Car", url: "https://3kh0.github.io" },
+        { name: "Getaway Shootout", url: "https://3kh0.github.io" },
+        { name: "Impossible Quiz", url: "https://3kh0.github.io" },
+        { name: "Iron Snout", url: "https://3kh0.github.io" },
+        { name: "Moto X3M", url: "https://3kh0.github.io" },
+        { name: "Rooftop Snipers", url: "https://3kh0.github.io" },
+        { name: "Stickman Hook", url: "https://3kh0.github.io" },
+        { name: "Temple Run 2", url: "https://3kh0.github.io" },
+        { name: "Vex 7", url: "https://3kh0.github.io" },
+        { name: "Water Sort", url: "https://3kh0.github.io" },
+        { name: "Wheely 8", url: "https://3kh0.github.io" },
+        { name: "You Only Live Once", url: "https://3kh0.github.io" },
+        { name: "Zombs Royale", url: "https://3kh0.github.io" },
+        { name: "2048", url: "https://3kh0.github.io" },
+        { name: "8 Ball Pool", url: "https://3kh0.github.io" },
+        { name: "Angry Birds", url: "https://3kh0.github.io" },
+        { name: "Boxel Rebound", url: "https://3kh0.github.io" },
+        { name: "Chrome Dino", url: "https://3kh0.github.io" },
+        { name: "Doodle Jump", url: "https://3kh0.github.io" },
+        { name: "Tiny Fishing", url: "https://3kh0.github.io" }
+    ];
+
+    const grid = document.getElementById('gameGrid');
+    games.forEach(game => {
+        const card = document.createElement('div');
+        card.className = 'game-card';
+        card.innerHTML = `<h3>${game.name}</h3>`;
+        card.onclick = () => openGame(game.url);
+        grid.appendChild(card);
+    });
+
+    function openGame(url) {
+        document.getElementById('game-frame').src = url;
+        document.getElementById('game-container').style.display = 'block';
+    }
+
+    function closeGame() {
+        document.getElementById('game-container').style.display = 'none';
+        document.getElementById('game-frame').src = '';
+    }
+</script>
+</body>
+</html>
